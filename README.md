@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/alex19pov31/bitrix-helper.svg?branch=master)](https://travis-ci.org/alex19pov31/bitrix-helper) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alex19pov31/bitrix-helper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alex19pov31/bitrix-helper/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/alex19pov31/bitrix-helper/v/stable)](https://packagist.org/packages/alex19pov31/bitrix-helper) [![Build Status](https://travis-ci.org/alex19pov31/bitrix-helper.svg?branch=master)](https://travis-ci.org/alex19pov31/bitrix-helper) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alex19pov31/bitrix-helper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alex19pov31/bitrix-helper/?branch=master)
 
 # Bitrix helper
 
