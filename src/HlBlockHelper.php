@@ -81,7 +81,7 @@ class HlBlockHelper
      * @param integer $id
      * @return array|null
      */
-    public static function getHlblockByID(int $id): ?array
+    public static function getHlblockByID(int $id)
     {
         $list = static::getListHlBlock();
         $hlBlock = $list['id_' . $id];
@@ -95,7 +95,7 @@ class HlBlockHelper
      * @param string $name
      * @return array|null
      */
-    public static function getHlblockByName(string $name): ?array
+    public static function getHlblockByName(string $name)
     {
         $list = static::getListHlBlock();
         $hlBlock = $list['name_' . $name];
@@ -109,7 +109,7 @@ class HlBlockHelper
      * @param string $tableName
      * @return array|null
      */
-    public static function getHlblockByTableName(string $tableName): ?array
+    public static function getHlblockByTableName(string $tableName)
     {
         $list = static::getListHlBlock();
         $hlBlock = $list['table_' . $tableName];
@@ -123,7 +123,7 @@ class HlBlockHelper
      * @param string $name
      * @return array|null
      */
-    public static function getHlblock(string $name): ?array
+    public static function getHlblock(string $name)
     {
         $hlBlock = static::getHlblockByID((int) $name);
         if (!is_null($hlBlock)) {
@@ -149,7 +149,7 @@ class HlBlockHelper
      * @param string $name
      * @return DataManager|null
      */
-    public static function getHlblockClass(string $name): ?DataManager
+    public static function getHlblockClass(string $name)
     {
         $hlBlock = static::getHlblock($name);
         if (is_null($hlBlock)) {

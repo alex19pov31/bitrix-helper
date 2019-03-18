@@ -86,7 +86,7 @@ class IblockHelper
      * @param string $code
      * @return integer|null
      */
-    public static function getIblockID(string $code, ?string $iblockType = null): ?int
+    public static function getIblockID(string $code, $iblockType = null)
     {
         $iblock = static::getIblock($code, $iblockType);
         if (empty($iblock)) {
@@ -96,7 +96,7 @@ class IblockHelper
         return (int) $iblock['ID'];
     }
 
-    public static function getIblock(string $code, ?string $iblockType = null): ?array
+    public static function getIblock(string $code, $iblockType = null)
     {
         $list = static::getListIblock();
         $key = is_null($iblockType) ? $code : $code . '_' . $iblockType;

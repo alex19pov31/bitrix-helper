@@ -54,9 +54,9 @@ function loadModule(string $moduleName): bool
  *
  * @param string $code
  * @param string|null $iblockType
- * @return integer
+ * @return integer|null
  */
-function getIblockId(string $code, ?string $iblockType = null, int $minutes = 0): ?int
+function getIblockId(string $code, $iblockType = null, int $minutes = 0)
 {
     IblockHelper::setCacheTime($minutes);
     return IblockHelper::getIblockID($code, $iblockType);
@@ -69,7 +69,7 @@ function getIblockId(string $code, ?string $iblockType = null, int $minutes = 0)
  * @param integer $minutes
  * @return array|null
  */
-function getHlBlock(string $code, $minutes = 0): ?array
+function getHlBlock(string $code, $minutes = 0)
 {
     HlBlockHelper::setCacheTime($minutes);
     return HlBlockHelper::getHlblock($code);
@@ -82,7 +82,7 @@ function getHlBlock(string $code, $minutes = 0): ?array
  * @param integer $minutes
  * @return DataManager|null
  */
-function getHlBlockClass(string $code, $minutes = 0): ?DataManager
+function getHlBlockClass(string $code, $minutes = 0)
 {
     HlBlockHelper::setCacheTime($minutes);
     return HlBlockHelper::getHlblockClass($code);
@@ -235,7 +235,7 @@ function initComponent(string $name, string $template = '', array $params = [], 
  * @param string|null $folder
  * @return void
  */
-function includeArea(string $path, ?string $basePath = null)
+function includeArea(string $path, $basePath = null)
 {
     if (is_null($basePath)) {
         $basePath = bxApp()->GetTemplatePath('') . 'include';

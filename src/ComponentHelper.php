@@ -76,7 +76,7 @@ class ComponentHelper
      *
      * @return array|null
      */
-    public static function getStack(): ?array
+    public static function getStack()
     {
         return static::$componentStack;
     }
@@ -87,7 +87,7 @@ class ComponentHelper
      * @param string $name
      * @return ComponentHelper|null
      */
-    public static function getByNameInStack(string $name): ?ComponentHelper
+    public static function getByNameInStack(string $name)
     {
         $component = static::$componentStack[$name];
         return !empty($component) ? $component : null;
@@ -170,7 +170,7 @@ class ComponentHelper
      *
      * @return array|null
      */
-    public function getParentComponent(): ?array
+    public function getParentComponent()
     {
         return $this->parentComponent;
     }
