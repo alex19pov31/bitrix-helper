@@ -3,6 +3,10 @@
     "description": "Helper collection for bitrix",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "bitrix",
+        "helper"
+    ],
     "authors": [
         {
             "name": "Nesterov Alexander",

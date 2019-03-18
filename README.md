@@ -99,6 +99,11 @@
 
 ```php
     taggedCache();
+
+    /**
+     * Отчистка кеша по тегу
+     */
+    taggedCache()->clearByTag('tag_name');
 ```
 
 ### Инициализация тегированного кеша
@@ -120,11 +125,21 @@
      * 30 - время кеширования в минутах
      * cache_key - ключ кеширования
      */
-    return cache(30, 'cache_key', '/', 'cache', function() {
+    $cacheData = cache(30, 'cache_key', '/', 'cache', function() {
         initTagCache(['simple_cache'], '/simple'); // инициализация тегированного кеша
 
         return "данные которые надо закешировать";
     });
+
+    /**
+     * Отчистка данных кеша
+     */
+    cleanCache('cache_key', '/', 'cache');
+
+    /**
+     * Записть данные в кеш (с предварительной отчисткой кеша)
+     */
+    setCacheData(30, 'cache_key', '/', 'cache', 'данные для кеширования');
 ```
 
 ### Подключение компонента

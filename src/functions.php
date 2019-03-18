@@ -137,10 +137,43 @@ function cache(int $minutes, string $key, $initDir = '/', string $baseDir = 'cac
             $cache->endDataCache($data);
         } catch (Exception $e) {
             $cache->abortDataCache();
+            taggedCache()->abortTagCache();
         }
     }
 
     return $data;
+}
+
+/**
+ * Отчистка кеша
+ *
+ * @param string $key
+ * @param string $initDir
+ * @param string $baseDir
+ * @return void
+ */
+function cleanCache(string $key, $initDir = '/', string $baseDir = 'cache')
+{
+    $cache = new Cache(Cache::createInstance());
+    $cache->clean($key, $initDir, $baseDir);
+}
+
+/**
+ * Зписать данные в кеш (с предварительной отчисткой)
+ *
+ * @param integer $minutes
+ * @param string $key
+ * @param string $initDir
+ * @param string $baseDir
+ * @param [type] $data
+ * @return void
+ */
+function setCacheData(int $minutes, string $key, $initDir = '/', string $baseDir = 'cache', $data)
+{
+    cleanCache($key, $initDir, $baseDir);
+    cache($minutes, $key, $initDir, $baseDir, function () use ($data) {
+        return $data;
+    });
 }
 
 /**
