@@ -112,7 +112,7 @@ class HlBlockHelperTest extends TestCase
                 static::$dataSet[0],
                 static::$dataSet[1],
                 static::$dataSet[2],
-                null,
+                null
             );
 
         HlBlockHelper::setHlBlockTableCalss(static::$hlBlockTableClass);
