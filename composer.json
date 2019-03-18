@@ -1,0 +1,27 @@
+{
+    "name": "alex19pov31/bitrix-helper",
+    "description": "Helper collection for bitrix",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nesterov Alexander",
+            "email": "alex19pov31@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Alex19pov31\\BitrixHelper\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "mockery/mockery": "^1.2"
+    }
+}
