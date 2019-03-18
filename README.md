@@ -1,5 +1,4 @@
-[![Build Status](https://api.travis-ci.org/alex19pov31/bitrix-helper.svg?branch=master)](https://travis-ci.org/alex19pov31/bitrix-helper)
-
+[![Build Status](https://travis-ci.org/alex19pov31/bitrix-helper.svg?branch=master)](https://travis-ci.org/alex19pov31/bitrix-helper)
 
 # Bitrix helper
 
