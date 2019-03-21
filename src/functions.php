@@ -128,7 +128,7 @@ function cache(int $minutes, string $key, $initDir = '/', string $baseDir = 'cac
 {
     $data = null;
     $ttl = $minutes * 60;
-    $cache = new Cache(Cache::createInstance());
+    $cache = Cache::createInstance();
     if ($cache->initCache($ttl, $key, $initDir, $baseDir)) {
         $data = $cache->getVars();
     } elseif ($cache->startDataCache($ttl, $key, $initDir, [], $baseDir)) {
@@ -154,7 +154,7 @@ function cache(int $minutes, string $key, $initDir = '/', string $baseDir = 'cac
  */
 function cleanCache(string $key, $initDir = '/', string $baseDir = 'cache')
 {
-    $cache = new Cache(Cache::createInstance());
+    $cache = Cache::createInstance();
     $cache->clean($key, $initDir, $baseDir);
 }
 
