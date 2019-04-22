@@ -57,6 +57,34 @@ if (!function_exists('loadModule')) {
     }
 }
 
+if (!function_exists('cacheKey')) {
+    /**
+     * Ключ кеша
+     *
+     * @param array $data
+     * @return string
+     */
+    function cacheKey(array $data): string
+    {
+        return md5(
+            json_encode($data)
+        );
+    }
+}
+
+if (!function_exists('bxUser')) {
+    /**
+     * Объект локального пользователя
+     *
+     * @return CUser
+     */
+    function bxUser(): CUser
+    {
+        global $USER;
+        return $USER;
+    }
+}
+
 if (!function_exists('getIblockId')) {
     /**
      * Идентификатор инфоблока
