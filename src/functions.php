@@ -10,6 +10,7 @@ use Bitrix\Main\DB\Exception;
 use Bitrix\Main\DB\Result;
 use Bitrix\Main\Loader;
 use Bitrix\Main\ORM\Data\DataManager;
+use Bitrix\Main\HttpRequest;
 
 if (!function_exists('bxApp')) {
     /**
@@ -53,7 +54,7 @@ if (!function_exists('loadModule')) {
      */
     function loadModule(string $moduleName): bool
     {
-        return (bool) Loader::includeModule($moduleName);
+        return (bool)Loader::includeModule($moduleName);
     }
 }
 
@@ -248,7 +249,7 @@ if (!function_exists('initEditIblockElement')) {
 
         $tpl->AddEditAction($elementId, $link, $description);
 
-        return (string) $tpl->GetEditAreaId($elementId);
+        return (string)$tpl->GetEditAreaId($elementId);
     }
 }
 
@@ -272,7 +273,7 @@ if (!function_exists('initEditIblockSection')) {
 
         $tpl->AddEditAction($sectionId, $link, $description);
 
-        return (string) $tpl->GetEditAreaId($sectionId);
+        return (string)$tpl->GetEditAreaId($sectionId);
     }
 }
 
@@ -300,7 +301,7 @@ if (!function_exists('initEditHLBlockElement')) {
 
         $tpl->AddEditAction($elementId, $link, $description);
 
-        return (string) $tpl->GetEditAreaId($elementId);
+        return (string)$tpl->GetEditAreaId($elementId);
     }
 }
 
@@ -347,4 +348,47 @@ if (!function_exists('includeArea')) {
             ])
             ->show();
     }
+}
+
+if (!function_exists('sendJsonResponse')) {
+    /**
+     * Ответ в формате json
+     *
+     * @param array $data
+     * @param integer $statusCode
+     * @return void
+     */
+    function sendJsonResponse(array $data, int $statusCode)
+    {
+        bxApp()->RestartBuffer();
+        http_response_code($statusCode);
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        die();
+    }
+}
+
+/**
+ * Инициализация констант с идентификаторами инфоблоков
+ *
+ * @param integer $caheMinutes
+ * @return void
+ */
+function initIBConstantList(int $caheMinutes)
+{
+    IblockHelper::setCacheTime($caheMinutes);
+    $list = IblockHelper::getListIblock();
+    foreach ($list as $iblock) {
+        define('IBLOCK_' . strtoupper($iblock['CODE']), $iblock['ID']);
+    }
+}
+
+/**
+ * Объект запроса
+ *
+ * @return HttpRequest
+ */
+function bxRequest(): HttpRequest
+{
+    return appInstance()->getContext()->getRequest();
 }

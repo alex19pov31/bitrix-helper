@@ -42,10 +42,10 @@ class IblockHelper
      *
      * @return array
      */
-    private static function getListIblock(): array
+    public static function getListIblock(): array
     {
         if (!is_null(static::$iblockList)) {
-            return (array) static::$iblockList;
+            return (array)static::$iblockList;
         }
 
         $iblockTableClass = static::getIBlockTableClass();
@@ -66,7 +66,7 @@ class IblockHelper
             static::$iblockList[$iblock['CODE'] . '_' . $iblock['IBLOCK_TYPE_ID']] = $iblock;
         }
 
-        return (array) static::$iblockList;
+        return (array)static::$iblockList;
     }
 
     /**
@@ -93,7 +93,7 @@ class IblockHelper
             return null;
         }
 
-        return (int) $iblock['ID'];
+        return (int)$iblock['ID'];
     }
 
     public static function getIblock(string $code, $iblockType = null)
@@ -105,6 +105,6 @@ class IblockHelper
             return null;
         }
 
-        return (array) $iblock;
+        return (array)$iblock;
     }
 }
